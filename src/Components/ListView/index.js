@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../Spinner/index';
 import './listview.css';
+import {Link} from 'react-router-dom';
 
 export default class ListView extends Component {
     constructor(props){
@@ -21,14 +22,16 @@ export default class ListView extends Component {
     }
     render(){
         const { data, loading } = this.state;
+        
         if(loading === true) return <Spinner />;
         
         return(
             <div>
             {
                 data.map(recipe => {
+                    
                     return(
-                        <div key={recipe.uuid} className="list-item">{recipe.title}</div>
+                        <div key={recipe.uuid} className="list-item">{recipe.title}<Link to={`/view/${recipe.uuid}`}>View</Link></div>
                     );
                 })
             }
