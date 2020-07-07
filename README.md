@@ -1,6 +1,6 @@
 # Crescendo Collective Recipe API challenge
 
-I chose to build this in React so I bootstrapped it with [Create React App](https://github.com/facebook/create-react-app) in order to hit the ground running more quickly.  I'm using the JS Fetch API to make API requests.
+I chose to build this in React so I bootstrapped it with [Create React App](https://github.com/facebook/create-react-app) in order to hit the ground running more quickly.  I'm using the [JS Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to make API requests.
 
 
 ## Available Scripts
