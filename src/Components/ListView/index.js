@@ -26,12 +26,14 @@ export default class ListView extends Component {
         if(loading === true) return <Spinner />;
         
         return(
-            <div>
+            <div className="recipe-grid">
             {
                 data.map(recipe => {
                     
                     return(
-                        <div key={recipe.uuid} className="list-item">{recipe.title}<Link to={`/view/${recipe.uuid}`}>View</Link></div>
+                        <div key={recipe.uuid} className="list-item">{recipe.title}
+                            <Link className="view-button" to={`/view/${recipe.uuid}`}>View</Link>
+                        </div>
                     );
                 })
             }
