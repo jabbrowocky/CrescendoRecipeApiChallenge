@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Spinner from '../Spinner/index';
-import './listview.css';
+import './listview.scss';
 import {Link} from 'react-router-dom';
 
 export default class ListView extends Component {
@@ -31,9 +31,11 @@ export default class ListView extends Component {
                 data.map(recipe => {
                     
                     return(
-                        <div key={recipe.uuid} className="list-item">{recipe.title}
-                            <Link className="view-button" to={`/view/${recipe.uuid}`}>View</Link>
-                        </div>
+                        <Link className="view-button" to={`/view/${recipe.uuid}`}>
+                            <div key={recipe.uuid} className="list-item">
+                                {recipe.title}                            
+                            </div>
+                        </Link>
                     );
                 })
             }

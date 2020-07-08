@@ -3,7 +3,7 @@ import './App.css';
 import ListView from './Components/ListView';
 import Home from './Components/Home';
 import ViewItem from './Components/ViewItem';
-import {Switch,Route,Link} from 'react-router-dom';
+import {Switch,Route,NavLink} from 'react-router-dom';
 
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink exact to="/" activeClassName="active">Home</NavLink>
             </li>
             <li>
-              <Link to="/recipes">Recipes</Link>
+              <NavLink to="/recipes" activeClassName="active">Recipes</NavLink>
             </li>
           </ul>          
         </nav>
@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/recipes">
+          <Route exact path="/recipes">
             <ListView />
           </Route>
           <Route path="/view/:id" component={ViewItem} />

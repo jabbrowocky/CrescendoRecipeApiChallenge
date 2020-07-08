@@ -30,21 +30,26 @@
         }
         & > .recipe-details{
             list-style-type: none;
-            padding: 0;
+            padding: 0 10px;
             & > li {
                 display: inline-block;
                 padding: 0;
                
             }
+            
             & > li:first-child {
                 margin-right: 1rem;
                 padding-right: 1rem;
-                border-right: 2px groove #b9e4c9;
+                @media screen and (min-width: 490px){
+                    border-right: 2px groove #b9e4c9;
+                }
             }
             & > li:nth-child(2){
                 margin-right: 1rem;
                 padding-right: 1rem;
-                border-right: 2px groove #b9e4c9;
+                @media screen and (min-width: 490px){
+                    border-right: 2px groove #b9e4c9;
+                }
             }
             
         }
@@ -65,7 +70,9 @@
         list-style-type: none;
         padding: 0;
         font-weight: 600;
-        column-count: 2;
+        @media screen and (min-width: 800px){
+            column-count: 2;
+        }
         &.instructions{
             column-count: 1
         }
@@ -81,4 +88,13 @@
     color: #37966F;
     background-color: #FFFBE6;
     font-weight: bold;
+}
+
+.special-details {
+    color: #356859;
+    padding: 20px;
+    background-color: #FFFBE6;
+    & > h3 {
+        margin-top: 0;
+    }
 }

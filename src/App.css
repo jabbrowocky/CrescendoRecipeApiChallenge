@@ -7,9 +7,31 @@
   text-align: center;
   background-color: #FFFBE6;
   min-height: 100vh;
-  color: #356859
+  color: #356859;
 }
-
+nav {
+  padding: 1rem 0;
+  width: 100%;
+ 
+}
 nav > ul {
   margin-top: 0;
+  margin-bottom: 1rem;;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 25px;
+  
+}
+nav a {
+  text-decoration: none;
+  color: #356859;
+  font-size: 20px;
+  padding-bottom: .5rem;
+}
+
+.active {
+  border-bottom: 4px solid #356859;
+  outline: none;
 }

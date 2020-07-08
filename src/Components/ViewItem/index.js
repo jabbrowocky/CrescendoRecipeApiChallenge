@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import Spinner from "../Spinner";
 import FullWidthTabs from "./tabs";
+import SimplePopover from './tooltip';
 import './viewitem.scss';
 
 
@@ -53,6 +54,8 @@ export default function ViewItem() {
 
 const IngredientsList = ({ingredients, className}) => {
     const [specials, setSpecials] = useState([]);
+    
+
     const getSpecials = async url => {
         fetch(url)
         .then(response => response.json())
@@ -63,28 +66,41 @@ const IngredientsList = ({ingredients, className}) => {
     useEffect(() => {
         getSpecials('http://localhost:3001/specials');              
     }, []);
+    
     return (
         <div className={className}>
         
             <ul>
                 {ingredients.map(ingredient => {
                     const special = specials.filter(spec => spec.ingredientId === ingredient.uuid);
+                                       
                     return (
                         <li key={ingredient.name}>
                             <div>
                                 <span><em>{`${ingredient.amount !== null ? ingredient.amount : ""} ${ingredient.measurement && ingredient.measurement}  `}</em></span>
-                                {ingredient.name}{special.length > 0 && <div className="">special available</div>}
+                                {ingredient.name}
+                                {special.length > 0 && 
+                                    <SimplePopover>
+                                        <div className="special-details">
+                                            <h3>{special[0].title}</h3>
+                                            <p>{special[0].type}</p>
+                                            {special[0].text && special[0].text}
+                                        </div>    
+                                    </SimplePopover>
+                                }
+                                
                             </div> 
                         </li>
                     );
                 })}
             </ul>
+            
         </div>
     );
 }
 
 const InstructionList = ({directions, className}) => {
-    console.log(directions);
+    
     return (
         <div className={className}>            
             <ul className='instructions'>
