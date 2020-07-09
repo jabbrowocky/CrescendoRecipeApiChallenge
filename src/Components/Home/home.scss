@@ -1,0 +1,82 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+.container-outer {
+    max-width: 100%;
+}
+.banner {
+    width: 100%;
+    min-height: 45vh;
+    @media screen and (max-width: 800px){
+        min-height: 33vh;
+    }
+    background-image: url('../../photos/food-banner.jpeg');
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.side-by-side {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "image"
+                        "text";
+    @media screen and (min-width: 800px){
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "text image";
+    }
+    margin: 10px 0;
+
+    & > .text {
+        grid-area: text;
+        max-width: 100%;
+        font-size: 18px;
+        @media screen and (min-width: 800px) {
+           font-size: 24px; 
+        }
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    & > .image {
+        grid-area: image;
+        max-width: 100%;
+        padding: 10px;
+        text-align: center;
+        text-emphasis: italic;
+        & > img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.section-secondary {
+    font-size: 18px;
+    @media screen and (min-width: 800px) {
+        font-size: 24px; 
+    }
+    & > p {
+        margin: 0;
+        padding: 20px 10px;
+    }
+}
+
+.callout {
+    text-decoration: none;
+    display: block;
+    color: #B9E4C9;
+    margin: 24px 0;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: #37966F;
+    font-size: 20px;
+    &:hover{
+        color: #37966F;
+        background-color: #B9E4C9;
+    }
+}
