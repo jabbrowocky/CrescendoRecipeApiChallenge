@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
         <nav>
+          <h1>RecipEase</h1>
           <ul>
             <li>
               <NavLink exact to="/" activeClassName="active">Home</NavLink>

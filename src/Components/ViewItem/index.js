@@ -3,6 +3,9 @@ import {useParams} from 'react-router-dom';
 import Spinner from "../Spinner";
 import FullWidthTabs from "./tabs";
 import SimplePopover from './tooltip';
+import AvTimerIcon from '@material-ui/icons/AvTimer';
+import RestaurantIcon from '@material-ui/icons/Restaurant';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import './viewitem.scss';
 
 
@@ -36,9 +39,9 @@ export default function ViewItem() {
                 <h1>{recipe.title}</h1>
                 <p>{recipe.description}</p>
                 <ul className="recipe-details">
-                    <li>Servings: {recipe.servings}</li> 
-                    <li>Preptime: {recipe.prepTime} minutes</li>
-                    <li>Cooktime: {recipe.cookTime} minutes</li>
+                    <li><RestaurantIcon style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '5px'}} />Servings: {recipe.servings}</li> 
+                    <li><AvTimerIcon style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '5px'}} />Preptime: {recipe.prepTime} minutes</li>
+                    <li><ScheduleIcon style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '5px'}} />Cooktime: {recipe.cookTime} minutes</li>
                 </ul>
             </div>
             
