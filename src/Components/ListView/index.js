@@ -34,7 +34,7 @@ export default class ListView extends Component {
                         <Link className="view-button" to={`/view/${recipe.uuid}`}>
                             <div key={recipe.uuid} className="list-item">
                                 <img src={`http://localhost:3001${recipe.images.medium}`} alt="preview-thumb" />
-                                {recipe.title}                            
+                                <h4>{recipe.title}</h4>                          
                             </div>
                         </Link>
                     );

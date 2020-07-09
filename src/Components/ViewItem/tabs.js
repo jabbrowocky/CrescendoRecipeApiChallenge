@@ -68,8 +68,8 @@ export default function SimpleTabs({labelValues,paneValues}) {
             className="test-tabs" value={value} 
             onChange={handleChange} variant="fullWidth" 
             aria-label="simple tabs example">
-          <Tab label={labelValues[0]} {...a11yProps(0)} />
-          <Tab label={labelValues[1]} {...a11yProps(1)} />          
+          <Tab style={{fontWeight: 'bold'}} label={labelValues[0]} {...a11yProps(0)} />
+          <Tab style={{fontWeight: 'bold'}} label={labelValues[1]} {...a11yProps(1)} />          
         </Tabs>
       </AppBar>
       <TabPanel style={{}} value={value} index={0}>

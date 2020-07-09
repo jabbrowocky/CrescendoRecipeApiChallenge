@@ -22,7 +22,15 @@ nav > h1 {
   font-size: 96px;
   margin-top: 0;
   margin-bottom: 24px;
+  
 }
+@media screen and (max-width: 600px){
+  nav > h1 {
+   display: none;
+    
+  }
+}
+
 nav > ul {
   margin-top: 0;
   margin-bottom: 1rem;
