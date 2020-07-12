@@ -29,12 +29,24 @@ export default class ListView extends Component {
             <div className="recipe-grid">
             {
                 data.map(recipe => {
-                    console.log(recipe.images.medium)
+                    
                     return(
                         <Link className="view-button" to={`/view/${recipe.uuid}`}>
                             <div key={recipe.uuid} className="list-item">
-                                <img src={`http://localhost:3001${recipe.images.medium}`} alt="preview-thumb" />
-                                <h4>{recipe.title}</h4>                          
+                                <div className="thumbnail">
+                                    <div className="thumbnail-outer">
+                                        <div 
+                                        className="thumbnail-inner" 
+                                        style={{backgroundImage: `url(http://localhost:3001${recipe.images.medium})`, 
+                                            backgroundSize: 'cover', 
+                                            backgroundRepeat: 'no-repeat'}} />
+                                        
+                                    </div>
+                                </div>                                
+                                <h4>{recipe.title}</h4>
+                                <div className="hover-description">
+                                    <div className="hover-description-inner">{recipe.description}</div>
+                                </div>                          
                             </div>
                         </Link>
                     );
