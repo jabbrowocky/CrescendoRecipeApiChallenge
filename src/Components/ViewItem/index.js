@@ -75,7 +75,7 @@ const IngredientsList = ({ingredients, className}) => {
         
             <ul>
                 {ingredients.map(ingredient => {
-                    const [special = undefined] = specials.filter(spec => spec.ingredientId === ingredient.uuid);
+                    const [ special ] = specials.filter(spec => spec.ingredientId === ingredient.uuid);
                                      
                     return (
                         <li key={ingredient.name}>
