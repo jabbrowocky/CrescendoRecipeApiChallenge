@@ -75,19 +75,19 @@ const IngredientsList = ({ingredients, className}) => {
         
             <ul>
                 {ingredients.map(ingredient => {
-                    const special = specials.filter(spec => spec.ingredientId === ingredient.uuid);
-                                       
+                    const [special = undefined] = specials.filter(spec => spec.ingredientId === ingredient.uuid);
+                                     
                     return (
                         <li key={ingredient.name}>
                             <div>
                                 <span><em>{`${ingredient.amount !== null ? ingredient.amount : ""} ${ingredient.measurement && ingredient.measurement}  `}</em></span>
                                 {ingredient.name}
-                                {special.length > 0 && 
+                                { special  && 
                                     <SimplePopover>
                                         <div className="special-details">
-                                            <h3>{special[0].title}</h3>
-                                            <p>{special[0].type}</p>
-                                            {special[0].text && special[0].text}
+                                            <h3>{special.title}</h3>
+                                            <p>{special.type}</p>
+                                            {special.text && special.text}
                                         </div>    
                                     </SimplePopover>
                                 }
