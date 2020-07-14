@@ -2,10 +2,11 @@ import React, {useState,useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import Spinner from "../Spinner";
 import FullWidthTabs from "./tabs";
-import SimplePopover from './tooltip';
 import AvTimerIcon from '@material-ui/icons/AvTimer';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import InstructionList from './instructionlist';
+import IngredientsList from './ingredientslist';
 import './viewitem.scss';
 
 
@@ -55,69 +56,4 @@ export default function ViewItem() {
     )
 }
 
-const IngredientsList = ({ingredients, className}) => {
-    const [specials, setSpecials] = useState([]);
-    
 
-    const getSpecials = async url => {
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            setSpecials(data)
-        });
-    }
-    useEffect(() => {
-        getSpecials('http://localhost:3001/specials');              
-    }, []);
-    
-    return (
-        <div className={className}>
-        
-            <ul>
-                {ingredients.map(ingredient => {
-                    const [ special ] = specials.filter(spec => spec.ingredientId === ingredient.uuid);
-                                     
-                    return (
-                        <li key={ingredient.name}>
-                            <div>
-                                <span><em>{`${ingredient.amount !== null ? ingredient.amount : ""} ${ingredient.measurement && ingredient.measurement}  `}</em></span>
-                                {ingredient.name}
-                                { special  && 
-                                    <SimplePopover>
-                                        <div className="special-details">
-                                            <h3>{special.title}</h3>
-                                            <p>{special.type}</p>
-                                            {special.text && special.text}
-                                        </div>    
-                                    </SimplePopover>
-                                }
-                                
-                            </div> 
-                        </li>
-                    );
-                })}
-            </ul>
-            
-        </div>
-    );
-}
-
-const InstructionList = ({directions, className}) => {
-    
-    return (
-        <div className={className}>            
-            <ul className='instructions'>
-                {directions.map(step => {
-                    return (
-                        <li>
-                            <div>
-                                {step.instructions}<span><em>{step.optional && ' (optional)'}</em></span>
-                            </div> 
-                        </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
-
-}
